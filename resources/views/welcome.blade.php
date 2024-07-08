@@ -5,13 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel Guestbook</title>
-
-        <!-- Fonts -->
-
-        <!-- Styles -->
-        <style>
-       
-        </style>
+        
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-light antialiased dark:bg-black dark:text-white/50">
