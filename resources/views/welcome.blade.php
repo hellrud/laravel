@@ -8,6 +8,8 @@
         
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+        <link type="image/png" sizes="96x96" rel="icon" href="/icon.png">
+
         <x-darkmodeScript />
     </head>
         <body class="font-light antialiased dark:bg-black dark:text-white/50 bg-slate-50">
