@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.scrollbar-col
+{
+   scrollbar-color: rgb(77, 83, 117) #0d141f;
+}
