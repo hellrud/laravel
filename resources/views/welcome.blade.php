@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel Guestbook</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
         
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -41,14 +41,18 @@
                             </nav>
                         @endif
                     </header>
-
-                    <main class="mt-6 text-center">
-                        @auth
+                    <div class="text-center mt-4">
+                    @auth
                         Welcome to the Laravel Guestbook, {{ Auth::user()->name }}
+                        <x-book-form />
                         @else
-                        Dear Guest,<br>Welcome to the Laravel Guestbook
-                        
-                        @endauth
+                        Dear Guest,<br>
+                        Welcome to the Laravel Guestbook
+                    @endauth
+                    </div>
+                    <hr class="my-4">
+                    <main>
+                    GuestBookContentCards
                     </main>
 
     </body>
