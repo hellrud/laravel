@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('guestbooks', function (Blueprint $table) {
             $table->id();
             $table->longText('guestbook');
+            $table->text('title');
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });

@@ -17,7 +17,8 @@ class GuestbookFactory extends Factory
     public function definition(): array
     {
         return [
-            'guestbook' => fake()->realText(200),
+            'guestbook' => fake()->realText(1000),
+            'title' => fake()->realText(30),
             'user_id' => 1
         ];
     }

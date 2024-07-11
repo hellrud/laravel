@@ -1,3 +1,3 @@
 <x-layout>
-    @include('components.cards')
+    @include('components.cards', ['guestbooks' => $guestbook])
 </x-layout>
