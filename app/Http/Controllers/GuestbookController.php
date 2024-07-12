@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\Guestbook;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class GuestbookController extends Controller
             'title' => ['required', 'string']
         ]);
         
-        $data['user_id'] = 1;
+        $data['user_id'] = $request->user()->id;
         $guestbook = Guestbook::create($data);
         return to_route('guestbook.show', $guestbook)->with('message', 'Guestbook entry has been created');
     }
@@ -45,7 +46,8 @@ class GuestbookController extends Controller
      */
     public function show(Guestbook $guestbook)
     {
-        return view('guestbook.show' , ['guestbook' => $guestbook]);
+        $username = DB::table('users')->where('id', $guestbook->user_id)->first()->name;
+        return view('guestbook.show' , ['guestbook' => $guestbook, 'username' => $username]);
     }
 
     /**
