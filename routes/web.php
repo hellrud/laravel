@@ -18,7 +18,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/', [GuestbookController::class, 'index'])->name('guestbook.index');
-Route::resource('guestbook', GuestbookController::class);
-Route::permanentRedirect('/guestbook', '/');
+Route::resource('guestbook', GuestbookController::class)->except(['index']);
+Route::get('/guestbook', function() { return redirect('/'); });
 
 require __DIR__.'/auth.php';

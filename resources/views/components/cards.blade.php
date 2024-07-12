@@ -1,8 +1,8 @@
 @props(['guestbooks'])
 
-<div class="flex flex-wrap gap-4 items-center justify-center mb-5">
+<div class="flex flex-wrap gap-4 items-center justify-center mb-4 mx-3">
     @foreach ($guestbooks as $guestbook)
-    <x-content-card title="{{$guestbook->title}}" href="guestbook/{{$guestbook->id}}">
+    <x-content-card title="{{$guestbook->title}}" href="{{ route('guestbook.show', $guestbook) }}">
         {{Str::words($guestbook->guestbook, 30)}}
     </x-content-card>
     @endforeach

@@ -22,15 +22,22 @@ class GuestbookController extends Controller
      */
     public function create()
     {
-        return 'create';
+        return view('guestbook.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Guestbook $guestbook)
+    public function store(Request $request)
     {
-        return 'store';
+       $data = $request->validate([
+            'guestbook' => ['required', 'string'],
+            'title' => ['required', 'string']
+        ]);
+        
+        $data['user_id'] = 1;
+        $guestbook = Guestbook::create($data);
+        return to_route('guestbook.show', $guestbook)->with('message', 'Guestbook entry has been created');
     }
 
     /**
@@ -38,7 +45,7 @@ class GuestbookController extends Controller
      */
     public function show(Guestbook $guestbook)
     {
-        //
+        return view('guestbook.show' , ['guestbook' => $guestbook]);
     }
 
     /**
@@ -46,7 +53,7 @@ class GuestbookController extends Controller
      */
     public function edit(Guestbook $guestbook)
     {
-        //
+        return view('guestbook.edit' , ['guestbook' => $guestbook]);
     }
 
     /**
