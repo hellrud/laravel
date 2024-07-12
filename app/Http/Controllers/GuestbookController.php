@@ -12,9 +12,9 @@ class GuestbookController extends Controller
      */
     public function index()
     {
-        $guestbooks = Guestbook::query()->orderBy('created_at', 'desc')->paginate();
+        $guestbooks = Guestbook::query()->orderBy('created_at', 'desc')->paginate(9);
         
-        return view('welcome', ['guestbook' => $guestbooks]);
+        return view('welcome', ['guestbooks' => $guestbooks]);
     }
 
     /**

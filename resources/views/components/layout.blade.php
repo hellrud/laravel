@@ -13,22 +13,22 @@
         <x-darkmodeScript />
     </head>
         <body class="font-light antialiased dark:bg-black dark:text-white/50 bg-slate-50">
-                    <!-- Header & Nav -->
-                    @include('layouts.header')
-                    <!-- Greeting -->
-                    <div>
-                    @auth
-                        <p class="text-center -mt-6 md:-mt-16 text-xl font-semibold dark:text-indigo-300 tracking-wider">Welcome to the Laravel Guestbook</p>
-                        <x-book-form />
-                        @else
-                        <p class="text-center -mt-6 md:-mt-16 text-xl font-semibold dark:text-indigo-300 tracking-wider">Dear Guest,<br>Welcome to the Laravel Guestbook</p>
-                    @endauth
-                    </div>
-                    <hr class="m-6">
-                     <!-- Content -->
-                    <main>
-                    {{ $slot }}
-                    </main>
+            <!-- Header & Nav -->
+            @include('layouts.header')
+            <!-- Greeting -->
+            <div>
+                @auth
+                    <p class="text-center -mt-8 md:-mt-12 text-xl font-semibold dark:text-indigo-300 tracking-wider">Welcome to the Laravel Guestbook</p>
+                    <x-book-form />
+                    @else
+                    <p class="text-center -mt-8 md:-mt-12 text-xl font-semibold dark:text-indigo-300 tracking-wider">Dear Guest,<br>Welcome to the Laravel Guestbook</p>
+                @endauth
+            </div>
+            <hr class="m-6">
+            <!-- Content -->
+            <main>
+            {{ $slot }}
+            </main>
         </body>
         <x-themeToggle />
     @include('layouts.footer')

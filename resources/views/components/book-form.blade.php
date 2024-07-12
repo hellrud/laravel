@@ -15,7 +15,7 @@
       </x-input-label>
     </div>
     <div class="w-2/3">
-      <x-textarea-input class="w-full" id="inline-content" rows="5"></x-textarea-input>
+      <x-textarea-input class="w-full" id="inline-content" rows="5" placeholder="Your Text"></x-textarea-input>
     </div>
   </div>
 

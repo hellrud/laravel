@@ -17,7 +17,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
 Route::get('/', [GuestbookController::class, 'index'])->name('guestbook.index');
+Route::resource('guestbook', GuestbookController::class);
+Route::permanentRedirect('/guestbook', '/');
 
 require __DIR__.'/auth.php';
