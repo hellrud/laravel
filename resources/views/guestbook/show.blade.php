@@ -16,6 +16,12 @@
    @ {{ $guestbook->updated_at }} by {{ $username }}</p>
     </div>
     <div class="flex flex-auto justify-center">
-    <x-secondary-button class="ml-6 mt-10"><a href="{{ url()->previous() }}">back</a></x-secondary-button>
+    <x-secondary-button class="ml-6 mt-10">
+        @if (session('message'))
+        <a href="{{ route('guestbook.index') }}">home</a>
+        @else
+        <a href="{{ url()->previous() }}">back</a>
+        @endif
+    </x-secondary-button>
     </div>
 </x-layout>

@@ -55,6 +55,9 @@ class GuestbookController extends Controller
      */
     public function edit(Guestbook $guestbook)
     {
+        if($guestbook->user_id !== request()->user()->id) {
+            abort(403);
+        }
         return view('guestbook.edit' , ['guestbook' => $guestbook]);
     }
 
