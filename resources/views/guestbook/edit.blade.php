@@ -18,7 +18,7 @@
               </x-input-label>
             </div>
             <div class="w-2/3">
-              <x-textarea-input class="w-full" id="inline-content" rows="5" placeholder="Your Text" name="guestbook">{{ $guestbook->guestbook}}</x-textarea-input>
+              <x-textarea-input class="w-full" id="inline-content" rows="5"  name="guestbook">{{ $guestbook->guestbook}}</x-textarea-input>
             </div>
           </div>
         

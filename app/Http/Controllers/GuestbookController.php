@@ -63,8 +63,15 @@ class GuestbookController extends Controller
      */
     public function update(Request $request, Guestbook $guestbook)
     {
-        //
-    }
+        $data = $request->validate([
+            'guestbook' => ['required', 'string'],
+            'title' => ['required', 'string']
+        ]);
+        
+        
+        $guestbook->update($data);
+        return to_route('guestbook.show', $guestbook)->with('message', 'Guestbook entry has been updated');
+        }
 
     /**
      * Remove the specified resource from storage.
