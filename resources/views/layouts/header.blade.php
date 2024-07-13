@@ -1,10 +1,13 @@
 <header class="flex items-center py-4">
     @if (Route::has('login'))
-        <nav class="flex flex-auto justify-end gap-4 mr-2 sm:mr-10 pb-5">
+        <nav class="flex flex-auto justify-between md:justify-end gap-4 mx-2 md:mr-6 pb-5">
             @auth
-                <x-nav-link class="mb-3">
+                <x-nav-link class="mb-3" :href="route('profile.edit')">
                 Hey, {{ Auth::user()->name }}
-                </x-nav-link>        
+                </x-nav-link>
+                <x-nav-link class="mb-3" :href="route('guestbook.create')">
+                    Make Entry
+                    </x-nav-link> 
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 

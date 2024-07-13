@@ -16,7 +16,7 @@
    @ {{ $guestbook->updated_at }} by {{ $username }}</p>
     </div>
     <div class="flex flex-auto justify-center">
-    <x-secondary-button class="ml-6 mt-10">
+    <x-secondary-button class="ml-6 mt-10 mb-2">
         @if (session('message'))
         <a href="{{ route('guestbook.index') }}">home</a>
         @else
