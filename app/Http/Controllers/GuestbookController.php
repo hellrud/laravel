@@ -44,10 +44,10 @@ class GuestbookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Guestbook $guestbook)
+    public function show(Request $request, Guestbook $guestbook)
     {
         $username = DB::table('users')->where('id', $guestbook->user_id)->first()->name;
-        return view('guestbook.show' , ['guestbook' => $guestbook, 'username' => $username]);
+        return view('guestbook.show' , ['guestbook' => $guestbook, 'username' => $username, 'request' => $request]);
     }
 
     /**
@@ -66,11 +66,13 @@ class GuestbookController extends Controller
      */
     public function update(Request $request, Guestbook $guestbook)
     {
+        if($guestbook->user_id !== request()->user()->id) {
+            abort(403);
+        }
         $data = $request->validate([
             'guestbook' => ['required', 'string'],
             'title' => ['required', 'string']
         ]);
-        
         
         $guestbook->update($data);
         return to_route('guestbook.show', $guestbook)->with('message', 'Guestbook entry has been updated');
@@ -81,6 +83,10 @@ class GuestbookController extends Controller
      */
     public function destroy(Guestbook $guestbook)
     {
-        //
+        if($guestbook->user_id !== request()->user()->id) {
+            abort(403);
+        }
+        $guestbook->delete();
+        return to_route('guestbook.index')->with('message','Guestbook entry has been deleted');
     }
 }

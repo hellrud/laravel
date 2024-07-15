@@ -6,7 +6,7 @@
       <x-input-label class="" for="inline-title"><p class="@error('title') text-red-500  @enderror">Title</p></x-input-label>
     </div>
     <div class="w-2/3">
-      <x-text-input class="w-full" id="inline-title" type="text" name="title"></x-text-input>
+      <x-text-input class="w-full" id="inline-title" type="text" name="title" value="{{old('title')}}"></x-text-input>
     </div>
   </div>
   <div class="flex items-center mb-6">
@@ -16,7 +16,7 @@
       </x-input-label>
     </div>
     <div class="w-2/3">
-      <x-textarea-input class="w-full" id="inline-content" rows="5" placeholder="Your Text" name="guestbook"></x-textarea-input>
+      <x-textarea-input class="w-full" id="inline-content" rows="5" placeholder="Your Text" name="guestbook">{{old('guestbook')}}</x-textarea-input>
     </div>
   </div>
 
