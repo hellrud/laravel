@@ -10,9 +10,12 @@
         </div>
     </div>
     @endsession
-    @include('components.cards', ['guestbooks' => $guestbooks])
 
+    <div class="my-8 mx-2 md:hidden">
+      {{ $guestbooks->onEachSide(1)->links() }}
+    </div>
+    @include('components.cards', ['guestbooks' => $guestbooks])
     <div class="my-8 mx-2 md:mx-10">
-    {{ $guestbooks->links() }}
+      {{ $guestbooks->onEachSide(1)->links() }}
     </div>
 </x-layout>
