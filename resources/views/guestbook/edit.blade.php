@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="mt-6 flex flex-col justify-center items-center">
+    <div class="mt-6 flex flex-col justify-center items-center mx-2">
         <form action="{{ route('guestbook.update', ['guestbook' => $guestbook]) }}" method="POST" class="w-full max-w-sm sm:max-w-lg sm:mr-30">
           @csrf
           @method('PUT')
