@@ -19,9 +19,9 @@
             <!-- Greeting -->
             <div>
                 @auth
-                    <p class="text-center -mt-6 md:-mt-8 text-lg md:text-3xl font-semibold dark:text-indigo-300 tracking-wider">Welcome to the Laravel Guestbook</p>
+                    <p class="text-center -mt-6 md:-mt-8 text-xl md:text-3xl font-semibold dark:text-white/90 tracking-wider">Welcome back, {{ Auth::user()->name }}</p>
                     @else
-                    <p class="text-center -mt-6 md:-mt-8 text-lg md:text-3xl font-semibold dark:text-indigo-300 tracking-wider">Dear Guest,Welcome to the Laravel Guestbook</p>
+                    <p class="text-center -mt-6 md:-mt-8 text-xl md:text-3xl font-semibold dark:text-white/90 tracking-wider">Welcome to the Laravel Guestbook</p>
                 @endauth
             </div>
             <hr class="m-6">

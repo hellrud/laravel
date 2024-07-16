@@ -1,9 +1,9 @@
 <header class="flex items-center py-4">
     @if (Route::has('login'))
-        <nav class="flex flex-auto justify-between md:justify-end gap-4 mx-2 md:mr-6 pb-5">
+        <nav class="flex flex-auto justify-between md:justify-end gap-4 mx-2 md:mr-6 pb-5 md:text-base text-sm">
             @auth
                 <x-nav-link class="mb-3" :href="route('profile.edit')">
-                Hey, {{ Auth::user()->name }}
+                Your Profile
                 </x-nav-link>
                 <x-nav-link class="mb-3" :href="route('guestbook.create')">
                     Make Entry
