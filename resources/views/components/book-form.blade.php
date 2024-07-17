@@ -1,18 +1,18 @@
-<div class="mt-6 flex flex-col justify-center items-center mx-2">
+<div class="my-6 flex flex-col justify-center items-center mx-2">
 <form action="{{ route('guestbook.store') }}" method="POST" class="w-full max-w-sm sm:max-w-lg sm:mr-30">
   @csrf
   <div class="flex items-center mb-6">
     <div class="w-1/3">
-      <x-input-label class="" for="inline-title"><p class="@error('title') text-red-500  @enderror">Title</p></x-input-label>
+      <x-input-label for="inline-title"><p class="@error('title') text-red-500  @enderror">Title</p></x-input-label>
     </div>
     <div class="w-2/3">
-      <x-text-input class="w-full" id="inline-title" type="text" name="title" value="{{old('title')}}"></x-text-input>
+      <x-text-input class="w-full" id="inline-title" type="text" name="title" value="{{old('title')}}" placeholder="Title"></x-text-input>
     </div>
   </div>
   <div class="flex items-center mb-6">
     <div class="w-1/3">
-      <x-input-label class="" for="inline-content">
-        <p class="@error('guestbook') text-red-500  @enderror">Guestbook</p>
+      <x-input-label for="inline-content">
+        <p class="@error('guestbook') text-red-500  @enderror">Your Greeting</p>
       </x-input-label>
     </div>
     <div class="w-2/3">

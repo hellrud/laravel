@@ -8,7 +8,7 @@
               <x-input-label class="" for="inline-title">Title</x-input-label>
             </div>
             <div class="w-2/3">
-              <x-text-input class="w-full" id="inline-title" type="text" name="title" value="{{ $guestbook->title}}"></x-text-input>
+              <x-text-input class="w-full" id="inline-title" type="text" name="title" value="{{ $guestbook->title }}"></x-text-input>
             </div>
           </div>
           <div class="flex items-center mb-6">
@@ -18,10 +18,9 @@
               </x-input-label>
             </div>
             <div class="w-2/3">
-              <x-textarea-input class="w-full" id="inline-content" rows="5"  name="guestbook">{{ $guestbook->guestbook}}</x-textarea-input>
+              <x-textarea-input class="w-full" id="inline-content" rows="5"  name="guestbook">{{ $guestbook->guestbook }}</x-textarea-input>
             </div>
           </div>
-        
           <div class="flex">
             <div class="w-2/6">
               </div>
@@ -30,5 +29,5 @@
                 </div>
           </div>
         </form>
-        </div>
+      </div>
 </x-layout>
