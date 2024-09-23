@@ -3,7 +3,7 @@
   </span>
   <ul class="flex flex-wrap items-center mt-0 text-sm font-semibold text-gray-500 dark:text-gray-400">
       <li>
-          <a href="{{ route('contact') }}" class="hover:underline">Contact me</a>
+          <a href="{{ route('contact') }}" class="{{ (request()->routeIs('contact')) ? 'dark:text-gray-300 text-gray-700 border border-b-2 border-b-indigo-500 border-l-0 border-r-0 border-t-0' : '' }}">Contact me</a>
       </li>
   </ul>
 </footer>

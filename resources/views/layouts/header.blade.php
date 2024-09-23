@@ -5,7 +5,7 @@
                 <x-nav-link class="mb-3 font-mono" :href="route('profile.edit')">
                 Your Profile
                 </x-nav-link>
-                    <x-nav-link class="mb-3 font-mono font-extrabold" :href="route('guestbook.create')">
+                    <x-nav-link :active="request()->routeIs('guestbook.create')" class="mb-3 font-mono font-extrabold" :href="route('guestbook.create')">
                     Make Entry
                     </x-nav-link>
                 <form method="POST" action="{{ route('logout') }}">
