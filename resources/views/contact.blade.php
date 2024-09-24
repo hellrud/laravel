@@ -4,19 +4,18 @@
   @endsession
 
 <div class="flex flex-col justify-center items-center mx-2">
-  <img src="{{ asset('code.png')}}" width="180px" class="-rotate-6">
+  <img src="{{ asset('code.png')}}" width="100px" class="-rotate-6"> <p class="-rotate-12">Leave a message ...</p>
 
-  <form class="mx-auto px-10 -mt-6 w-full lg:w-2/3 p-3" action="{{ route('contactsend') }}" method="POST">
+  <form class="mx-auto px-10 w-full lg:w-2/3 p-3" action="{{ route('contactsend') }}" method="POST">
     @csrf
-    
-    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><p class="@error('name') text-red-500  @enderror">Your name</p></label>
-    <div class="flex">
-      <span class="inline-flex items-center px-3 text-sm bg-white text-gray-900 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-900 dark:text-gray-400 dark:border-gray-600">
+    <label for="name" class="mt-3 block mb-2 text-sm font-medium text-gray-900 dark:text-white"><p class="@error('name') text-red-500  @enderror">Your name</p></label>
+    <div class="relative">
+      <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
           <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"/>
         </svg>
-      </span>
-      <x-text-input type="text" id="name" value="{{old('name')}}" name="name" class="border-l-0 rounded-none rounded-e-md flex-1 min-w-0 w-full text-sm p-2.5" placeholder="Your Name"></x-text-input>
+      </div>
+      <x-text-input type="text" id="name" value="{{old('name')}}" name="name" class="block w-full ps-10 p-2.5" placeholder="Your Name"></x-text-input>
     </div>
 
     <label for="email" class="mt-3 block mb-2 text-sm font-medium text-gray-900 dark:text-white"><p class="@error('email') text-red-500  @enderror">Your email</p></label>

@@ -1,31 +1,16 @@
-<div class="my-6 flex flex-col justify-center items-center mx-2">
-<form action="{{ route('guestbook.store') }}" method="POST" class="w-full max-w-sm sm:max-w-lg sm:mr-30">
-  @csrf
-  <div class="flex items-center mb-6">
-    <div class="w-1/3">
-      <x-input-label for="inline-title"><p class="@error('title') text-red-500  @enderror">Title</p></x-input-label>
-    </div>
-    <div class="w-2/3">
-      <x-text-input class="w-full" id="inline-title" type="text" name="title" value="{{old('title')}}" placeholder="Title"></x-text-input>
-    </div>
-  </div>
-  <div class="flex items-center mb-6">
-    <div class="w-1/3">
-      <x-input-label for="inline-content">
-        <p class="@error('guestbook') text-red-500  @enderror">Your Greeting</p>
-      </x-input-label>
-    </div>
-    <div class="w-2/3">
-      <x-textarea-input class="w-full" id="inline-content" rows="5" placeholder="Your Text" name="guestbook">{{old('guestbook')}}</x-textarea-input>
-    </div>
-  </div>
+<div class="flex flex-col justify-center items-center mx-2">
+  <p class="-rotate-6 mb-3 mt-3">Make your own guestbook entry ...</p>
+  <form class="mx-auto px-10 w-full lg:w-2/3 p-3" action="{{ route('guestbook.store') }}" method="POST">
+    @csrf
 
-  <div class="flex">
-    <div class="w-2/6">
-      </div>
-      <div class="w-4/6">
-          <x-secondary-button type="submit">Make Entry</x-secondary-button>
-        </div>
-  </div>
-</form>
+    <label for="title" class="mt-3 block mb-2 text-sm font-medium text-gray-900 dark:text-white"><p class="@error('title') text-red-500  @enderror">Title</p></label>
+   
+      <x-text-input type="text" id="title" value="{{old('title')}}" name="title" class="block w-full p-2.5" placeholder="Title"></x-text-input>
+ 
+
+    <label for="guestbook" class="mt-3 block mb-2 text-sm font-medium text-gray-900 dark:text-white"><p class="@error('guestbook') text-red-500  @enderror">Your Greeting</p></label>
+    <x-textarea-input id="guestbook" name="guestbook" rows="4" class="block p-2.5 w-full text-sm" placeholder="Leave a message...">{{old('guestbook')}}</x-textarea-input>
+
+    <x-secondary-button type="submit" class="mt-5 w-full block justify-center" onclick="this.disabled=true;this.form.submit();">Make Entry</x-secondary-button>
+  </form>
 </div>
