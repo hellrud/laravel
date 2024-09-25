@@ -1,4 +1,12 @@
 @props(['footer'])
+@php
+    $locales = ['en', 'de', 'pl'];
+@endphp
+@if (session()->has('locale')) 
+    @php
+    App::setlocale(session()->get('locale'));
+    @endphp
+@endif
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -19,9 +27,9 @@
             <!-- Greeting -->
             <div>
                 @auth
-                    <p class="text-center -mt-6 md:-mt-8 text-xl md:text-3xl font-semibold tracking-wider dark:bg-gradient-to-r from-transparent via-gray-800 to-transparent dark:text-white/60">Welcome back, {{ Auth::user()->name }}</p>
+                    <p class="text-center -mt-6 md:-mt-8 text-xl md:text-3xl font-semibold tracking-wider dark:bg-gradient-to-r from-transparent via-gray-800 to-transparent dark:text-white/60">{{__('layout.welcome_auth')}}, {{ Auth::user()->name }}</p>
                     @else
-                    <p class="text-center -mt-6 md:-mt-8 text-xl md:text-3xl font-semibold tracking-wider dark:bg-gradient-to-r from-transparent via-gray-800 to-transparent dark:text-white/60">Welcome to the Laravel Guestbook</p>
+                    <p class="text-center -mt-6 md:-mt-8 text-xl md:text-3xl font-semibold tracking-wider dark:bg-gradient-to-r from-transparent via-gray-800 to-transparent dark:text-white/60">{{__('layout.welcome_guest')}}</p>
                 @endauth
             </div>
             <hr class="m-6">
@@ -30,6 +38,6 @@
             {{ $slot }}
             </main>
             <x-themeToggle />
-            @include('layouts.footer')
+            @include('layouts.footer', $locales)
         </body>
 </html>

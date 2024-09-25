@@ -30,3 +30,15 @@ Route::get('/', [GuestbookController::class, 'index'])->name('guestbook.index');
 Route::get('/guestbook', function() { return redirect('/'); });
 
 require __DIR__.'/auth.php';
+
+// INTERNATIONALISATION
+Route::get('/{locale}', function (string $locale) {
+    $locales = ['en', 'de', 'pl'];
+    if (!in_array($locale, $locales)) {        
+        return redirect()->back();
+    }
+    App::setLocale($locale);
+    // Session
+    session()->put('locale', $locale);
+    return redirect()->back();
+});
