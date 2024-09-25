@@ -1,3 +1,8 @@
+@if (session()->has('locale')) 
+    @php
+    App::setlocale(session()->get('locale'));
+    @endphp
+@endif
 <x-layout>
     @session('message')
     <x-toast-success message="{{session('message') }}" />

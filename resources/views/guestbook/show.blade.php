@@ -1,3 +1,8 @@
+@if (session()->has('locale')) 
+    @php
+    App::setlocale(session()->get('locale'));
+    @endphp
+@endif
 <x-layout>
     @session('message')
     <x-toast-success message="{{session('message') }}" />
@@ -11,11 +16,11 @@
     </div>
       @if ($guestbook->user_id === $request->user()->id)
       <div class="flex flex-auto justify-center">
-        <x-secondary-button class="ml-6 mt-10 mb-2"><a href="{{ route('guestbook.edit', $guestbook) }}">Edit</a></x-secondary-button>
+        <x-secondary-button class="ml-6 mt-10 mb-2"><a href="{{ route('guestbook.edit', $guestbook) }}">{{__('guestbook.edit')}}</a></x-secondary-button>
         <form action="{{ route('guestbook.destroy', $guestbook) }}" method="POST">
           @csrf
           @method('DELETE')
-        <x-primary-button class="ml-6 mt-10 mb-2">Delete</x-primary-button>
+        <x-primary-button class="ml-6 mt-10 mb-2">{{__('guestbook.delete')}}</x-primary-button>
         </form>
       </div>
       @endif
@@ -23,9 +28,9 @@
       <div class="flex flex-auto justify-center">
         <x-secondary-button class="ml-6 mt-10 mb-6">
         @if (session('message'))
-        <a href="{{ route('guestbook.index') }}">home</a>
+        <a href="{{ route('guestbook.index') }}">{{__('guestbook.home')}}</a>
         @else
-        <a href="{{ url()->previous() }}">back</a>
+        <a href="{{ url()->previous() }}">{{__('guestbook.back')}}</a>
         @endif
     </x-secondary-button>
     </div>

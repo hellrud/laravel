@@ -7,4 +7,8 @@ return [
     'greeting' => 'Deine Grüße',
     'greeting-ph' => 'Hinterlasse eine Nachricht...',
     'sendbutton' => 'ins Gästebuch eintragen',
+    'edit' => 'Bearbeiten',
+    'delete' => 'Löschen',
+    'home' => 'home',
+    'back' => 'zurück',
 ];
